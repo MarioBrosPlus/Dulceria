@@ -29,7 +29,7 @@ public class Almacen {
         usuario = ingresador;
         dulce = ingreso;
         try {
-            System.out.println("Hola Mundo");
+            System.out.println("Hola Gera");
             Conexion c=new Conexion();
             cn=c.inicializa();
             String tsql = "INSERT INTO Almacen values ('" + dulce.getIdPrducto() + "','" + dulce.getNombre() + "'," + dulce.getCantidad()
