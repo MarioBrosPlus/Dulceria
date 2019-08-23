@@ -50,21 +50,23 @@ public class RealizarVenta extends HttpServlet {
             String id = request.getParameter("id");
             int cantidadneta=Integer.parseInt(request.getParameter("cantidadneta"));
             String nombre = request.getParameter("producto");
+            int prec=Integer.parseInt(request.getParameter("precio"));
             int cantidad = Integer.parseInt(request.getParameter("cantidad"));
             String subtotal = request.getParameter("subtotal");
             out.print(nombre);
             try {
-                st = cn.prepareStatement("insert into Ventas values('" + nombre + "','" + String.valueOf(cantidad) + "','" + subtotal + "','" + id + "');");
-                st.executeUpdate();
+                //Se modifico con un procedimiento almacenado
+                st = cn.prepareStatement("select venta3('" + id + "','" + nombre + "'," + prec + "," + cantidad + "," + cantidadneta + ");");
+                st.executeQuery();
                 System.out.println("cantidad neta "+cantidadneta);
                 System.out.println("cantidad pedida "+cantidad);
                 int totaluni =cantidadneta - cantidad;
                 System.out.println(cantidadneta);
                 System.out.println("total "+totaluni);
                 cn.close();
-                cn=c.inicializa();
+                /*cn=c.inicializa();
                 st = cn.prepareStatement("update Almacen set cantidad='"+String.valueOf(totaluni)+"' where id='" + id + "'");
-                st.executeUpdate();
+                st.executeUpdate();*/
                 RequestDispatcher rd;
                 rd = request.getRequestDispatcher("./WEB-INF/jsp/Menu.jsp");
                 rd.forward(request, response);

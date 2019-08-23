@@ -27,7 +27,7 @@
         <h1 class="h3 mb-3 font-weight-normal">Dulceria Falcón</h1>
         <h3>Inicio de sesión</h3>
         <div class="container col-md-3">
-            Usuario:<input type="text"  class="form-control" name="usuario"></input>
+            Usuario:<input type="text"  class="form-control" name="usuario" autocomplete=off></input>
             <br>
             <br>
             Contraseña:<input type="password"  class="form-control" name="contrasena"></input>
